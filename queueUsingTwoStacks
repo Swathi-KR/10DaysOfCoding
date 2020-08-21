@@ -1,0 +1,37 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        Stack<Integer> insert = new Stack<>();
+        Stack<Integer> delete = new Stack<>();
+        int q = scan.nextInt();
+        while(q-->0) {
+            int type = scan.nextInt();
+            if(type==1) {
+                int x = scan.nextInt();
+                insert.push(x);
+            }
+            else if(type == 2) {
+                if(delete.isEmpty()) {
+                    while(!insert.isEmpty()) {
+                        delete.push(insert.pop());
+                    }
+                }
+                delete.pop();
+            }
+            else {
+                if(delete.isEmpty()) {
+                    while(!insert.isEmpty()) {
+                        delete.push(insert.pop());
+                    }
+                }
+                System.out.println(delete.peek());
+            }
+        }
+
+    }
+}
+
