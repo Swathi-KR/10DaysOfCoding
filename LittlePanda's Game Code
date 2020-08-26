@@ -1,0 +1,15 @@
+import java.math.BigInteger;
+import java.util.Scanner;
+public class Solution {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int t = scan.nextInt();
+        for(int i=0;i<t;i++) {
+            int a = scan.nextInt();
+            int b = scan.nextInt();
+            int x = scan.nextInt();
+            long ans = BigInteger.valueOf(a).modPow(BigInteger.valueOf(b),BigInteger.valueOf(x)).longValue();
+            System.out.println(ans);
+        }
+    }
+}
