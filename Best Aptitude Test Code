@@ -1,0 +1,67 @@
+#include <stdio.h> 
+#include <string.h> 
+#include <math.h> 
+#include <stdlib.h> 
+int compare(double [100], double [100], int);
+int main() {
+    int t, n, i,maximum;
+    scanf("%d",&t);
+    while(t--) {
+        scanf("%d",&n);
+    double gpa[n];
+    double s1[n], s2[n], s3[n], s4[n], s5[n];
+    for(i=0;i<n;i++) 
+    scanf("%lf",&gpa[i]);
+    for(i=0;i<n;i++) 
+    scanf("%lf", &s1[i]);
+    for(i=0;i<n;i++) 
+    scanf("%lf", &s2[i]);
+     for(i=0;i<n;i++) 
+    scanf("%lf", &s3[i]);
+     for(i=0;i<n;i++) 
+    scanf("%lf", &s4[i]);
+     for(i=0;i<n;i++) 
+    scanf("%lf", &s5[i]);
+    int c1 = compare(gpa,s1,n);
+    int c2 = compare(gpa,s2,n);
+    int c3 = compare(gpa,s3,n);
+    int c4 = compare(gpa,s4,n);
+    int c5 = compare(gpa,s5,n);
+    if(c1>c2 && c1>c3 && c1>c4 && c1>c5){
+    maximum = 1;
+    printf("%d",maximum);
+    }
+    else if(c2>c1 && c2>c3 && c2>c4 && c2>s5){
+    maximum = 2;
+    printf("%d",maximum);
+    }
+    else if(c3>c1 && c3>c2 && c3>c4 && c3>c5){
+    maximum = 3;
+    printf("%d",maximum);
+    }
+    else if(c4>c1 && c4>c2 && c4>c3 && c4>c5){
+    maximum = 4;
+    printf("%d",maximum);
+    }
+    else{
+    maximum = 5;
+    printf("%d",maximum);
+    }
+}
+    return 0;
+}
+int compare (double gpa[100], double s[100], int n) {
+    int res = 0;
+    for(int i =0;i<5;i++) {
+        for(int j=i+1;j<n;j++) {
+            if(gpa[i]>=0&&gpa[i]<=10 && s[i]>=0 && s[i] <=100) {
+            if(((gpa[i]-gpa[j])*(s[i]-s[j]))>0) {
+                res++;
+            }
+        }
+        }
+        return res;
+}
+return 0;
+}
+
